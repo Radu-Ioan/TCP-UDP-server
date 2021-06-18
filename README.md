@@ -60,7 +60,9 @@
     he can subscribe to a topic using:
     subscribe <TOPIC> <SF>
     where TOPIC is the title of the topic about which he will be informed and
-    SF comes from store-and-forward and can be 0 if the client does not want to receive the messages (related to the topic obviously) transmited in the time when he was offline or 1 otherwise. A client receives only the messages sent
+    SF comes from store-and-forward and can be 0 if the client does not want to
+    receive the messages (related to the topic obviously) transmited in the time
+    when he was offline or 1 otherwise. A client receives only the messages sent
     after his first connection.
     To unsubscribe from a topic, the subscriber enters:
     unsubscribe <TOPIC>
