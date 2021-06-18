@@ -1,0 +1,24 @@
+#!/bin/bash
+
+PORT=12321
+IP_SERVER="127.0.0.1"
+
+if [ $1 = server ]; then
+    ./server $PORT
+elif [ $1 = subscriber -o $1 = client ]; then
+    if [ $# -lt 2 ]; then
+        echo "Please enter client's id"
+        echo "Usage:"
+        echo "./run subscriber <ID>"
+    else
+        ./subscriber $2 $IP_SERVER $PORT
+    fi
+elif [ $1 = udp -o $1 = udp_client.py ]; then
+    if [ $# -eq 1 ]; then
+        python3 udp_client.py $IP_SERVER $PORT
+    elif [ $# -eq 2 ] && [ $2 = manual ]; then
+        python3 udp_client.py --mode manual $IP_SERVER $PORT
+    fi
+else
+    echo "Unknown command."
+fi
