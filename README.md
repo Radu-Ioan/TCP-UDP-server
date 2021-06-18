@@ -2,18 +2,22 @@
     This is a platform which has 3 components: a server, a set of udp clients
     and a set of tcp clients.
     The server forwards packets with data received from the udp clients - which
-    are the providers of information - to the tcp clients which act as
-    subscribed clients to some topics of the udp clients.
+    are the providers of information - to the tcp clients which act as subscribed
+    clients to some topics of the udp clients.
 
 # Server
     After the server starting, the tcp clients can send connection requests
-    together with an id. If the id is available, the client can continue to communicate with the server, otherwise is closed if another client with same id is online (being annonuced by the server that the id is taken).
+    together with an id. If the id is available, the client can continue to
+    communicate with the server, otherwise is closed if another client with
+    same id is online (being annonuced by the server that the id is taken).
 
 # Subscriptions
     The clients can choose 2 types of subscription:
-        - the first type assumes that when the client is disconnected and data about a topic is sent, it will be forwarded to the client when he is
+        * the first type assumes that when the client is disconnected and data
+        about a topic is sent, it will be forwarded to the client when he is
         connected again;
-        - the second one assumes that a client receives data about a subscribed topic only when the information has been sent when he was online.
+        * the second one assumes that a client receives data about a subscribed
+        topic only when the information has been sent when he was online.
 
 # Packets format
     When a packet from an udp client arrives at a tcp client, the subscriber
