@@ -6,13 +6,13 @@
     clients to some topics of the udp clients.
 
 # Server
-    After the server starting, the tcp clients can send connection requests
-    together with an id. If the id is available, the client can continue to
+    After the server starts, the tcp clients can send connection requests
+    along with an id. If the id is available, the client can continue to
     communicate with the server, otherwise is closed if another client with
-    same id is online (being annonuced by the server that the id is taken).
+    same id is online (and the server announces him that the id is taken).
 
 # Subscriptions
-    The clients can choose 2 types of subscription:
+    The clients may choose 2 types of subscription:
         * the first type assumes that when the client is disconnected and data
         about a topic is sent, it will be forwarded to the client when he is
         connected again;
@@ -29,18 +29,18 @@
     can take a value of INT, SHORT_REAL, FLOAT or STRING, and VALUE is the content coresponding to TYPE.
 
     Examples:
-    127.0.0.1:12321 - EURO2020/group-F/France-Germany - STRING - Benzema canceled goal for offside
+    127.0.0.1:12321 - EURO2020/group-F/France-Germany - STRING - Benzema goal canceled for offside
     55.44.22.11:30000 - world-temperature/Romania/Bucharest - FLOAT - 20.0
 
-    It must be specified that the topic name does not contain whitespaces.
-    The repository contains a demo udp client in python which has some illustrative topics.
+    The topic name cannot contain whitespaces.
+    The repository contains a demo udp client - developed using python - which has some illustrative topics.
 
 # How to use
-    To run the program, the server's port must be set in the run script. It has
+    To run the program, the server port must be set in the run script. It has
     an initial value of 12321. After that, the server must be turned on first using the command:
     $./run server
 
-    In another terminal, a tcp client can be connected to server using:
+    In another terminal, a tcp client can be connected to the server using:
     $./run subscriber <ID>
     $# or
     $./run client <ID>
@@ -68,6 +68,6 @@
     unsubscribe <TOPIC>
     If the client enters several times in a row a subscribe command, the last SF
     value is considered.
-    For disconnect from the server, a subscriber can enter 'exit'. Also, when the
-    server gets 'exit' from input, all the clients are informed and are closed.
+    To disconnect from the server, a subscriber can enter 'exit'. Also, when the
+    server gets 'exit' from input, all the clients get informed and become closed.
     The upd_client.py is just a demo provider for topics.
